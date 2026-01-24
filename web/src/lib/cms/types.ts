@@ -26,6 +26,8 @@ export interface Event {
   image?: string;
   capacity?: number;
   registeredCount?: number;
+  registrationType?: 'whatsapp' | 'forms' | null;
+  registrationLink?: string;
 }
 
 export interface BlogPost {

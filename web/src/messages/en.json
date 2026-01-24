@@ -11,6 +11,288 @@
     "subtitle": "Your connection with exchange students",
     "cta": "Learn more"
   },
+  "home": {
+    "hero": {
+      "title": "Welcome to Buddies, your home away from home",
+      "subtitle": "We help you connect, explore, and make lifelong friends during your time in Buenos Aires.",
+      "imageAlt": "Buddies ITBA tour group"
+    },
+    "about": {
+      "title": "Join Buddies. Feel at home, wherever you are",
+      "subtitle": "At Buddies, we bring together students from all around the world, creating a space where cultures blend, friendships grow, and every moment becomes unforgettable.",
+      "highlights": [
+        "Meet people who become family.",
+        "Explore Buenos Aires together, from hidden gems to cultural landmarks.",
+        "Participate in activities and events that make your experience unique."
+      ],
+      "cta": "See our FAQ",
+      "imageAlt": "Buddies mate gathering"
+    },
+    "stats": {
+      "items": [
+        { "value": "100", "label": "Students per semester" },
+        { "value": "34", "label": "Nationalities" },
+        { "value": "120", "label": "Argentinian buddies" },
+        { "value": "5000", "label": "Mates!" }
+      ]
+    },
+    "events": {
+      "title": "Our events",
+      "subtitle": "Join us and create unforgettable memories",
+      "items": [
+        {
+          "title": "Buenos Aires tour",
+          "description": "Discover iconic sights with fellow students and experience the city like a true local.",
+          "image": "/assets/img/events/1.png"
+        },
+        {
+          "title": "Welcome asado",
+          "description": "Great food, amazing people, and unforgettable memories await.",
+          "image": "/assets/img/events/2.png"
+        },
+        {
+          "title": "Football like a local",
+          "description": "Feel the thrill of Argentine futbol and experience the passion of local fans.",
+          "image": "/assets/img/events/3.png"
+        },
+        {
+          "title": "Countries dinner",
+          "description": "Bring a dish, taste flavors from around the world, and enjoy a global feast with friends.",
+          "image": "/assets/img/events/4.png"
+        },
+        {
+          "title": "Game night",
+          "description": "Board games, team challenges, and laughs for a perfect night with friends.",
+          "image": "/assets/img/events/5.png"
+        },
+        {
+          "title": "Pre-party and club",
+          "description": "Kick off the night with a pre-party and keep dancing at one of BA’s best clubs.",
+          "image": "/assets/img/events/6.png"
+        }
+      ]
+    }
+  },
+  "about": {
+    "page": {
+      "title": "About us",
+      "description": "Buddies is all about making friends, exploring Buenos Aires, and having a great time together. We are here to help you feel at home and create memories you will never forget.",
+      "breadcrumb": "About"
+    },
+    "intro": {
+      "intro": "Buddies is a student organization from ITBA aimed at helping incoming students adapt to both the university and Buenos Aires. Each exchange student is paired with an Argentinian student from ITBA, their Buddy, to provide guidance and support during their stay.",
+      "points": [
+        "Create lifelong friendships between local and international students.",
+        "Offer cultural events, city tours, and networking opportunities.",
+        "Help students adapt to life in Buenos Aires through personalized support."
+      ],
+      "closing": "The program provides both Argentinian and exchange students the opportunity to meet people from all over the world, fostering an environment of cultural exchange and mutual growth.",
+      "imageAlt": "Buddies group photo"
+    },
+    "stats": {
+      "items": [
+        { "value": "100", "label": "Students per semester" },
+        { "value": "34", "label": "Nationalities" },
+        { "value": "120", "label": "Argentinian buddies" },
+        { "value": "5000", "label": "Mates!" }
+      ]
+    },
+    "team": {
+      "title": "Our team",
+      "subtitle": "The people behind Buddies"
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "subtitle": "What are they saying",
+      "items": [
+        {
+          "name": "Martina Vives",
+          "role": "Co-director at Buddies",
+          "quote": "An incredible way to make friends and experience the true essence of Buenos Aires!",
+          "image": "/assets/img/testimonials/1.png"
+        },
+        {
+          "name": "Sofia Bouzo",
+          "role": "Co-director at Buddies",
+          "quote": "A welcoming community that made every experience unforgettable.",
+          "image": "/assets/img/testimonials/2.png"
+        }
+      ]
+    }
+  },
+  "events": {
+    "page": {
+      "title": "Events & activities",
+      "description": "Join cultural and social activities to make friends and explore Buenos Aires together.",
+      "breadcrumb": "Events"
+    },
+    "list": {
+      "items": [
+        {
+          "title": "Buenos Aires tour",
+          "date": "Saturday, March 22nd at 10:00 am",
+          "description": "Discover iconic sights with fellow students and experience the city like a true local.",
+          "image": "/assets/img/events/1.png"
+        },
+        {
+          "title": "Welcome asado",
+          "date": "Sunday, April 6th at 1:00 pm",
+          "description": "Great food, amazing people, and unforgettable memories await.",
+          "image": "/assets/img/events/2.png"
+        },
+        {
+          "title": "Football like a local",
+          "date": "Friday, April 18th at 7:30 pm",
+          "description": "Feel the thrill of Argentine futbol and experience the passion of local fans.",
+          "image": "/assets/img/events/3.png"
+        }
+      ]
+    }
+  },
+  "contact": {
+    "page": {
+      "title": "We are here to help",
+      "description": "If you need information about our events, activities, or living in Buenos Aires, feel free to reach out.",
+      "breadcrumb": "Contact"
+    },
+    "section": {
+      "addressTitle": "Address",
+      "addressLines": [
+        "Iguazu 341",
+        "Parque Patricios, Buenos Aires",
+        "Argentina"
+      ],
+      "emailTitle": "Email us",
+      "email": "buddies@itba.edu.ar",
+      "form": {
+        "name": "Your name",
+        "email": "Your email",
+        "subject": "Subject",
+        "message": "Message",
+        "submit": "Send message"
+      }
+    }
+  },
+  "faq": {
+    "page": {
+      "title": "Frequently asked questions",
+      "description": "Find answers to common questions about studying at ITBA, exploring Buenos Aires, and making the most of your experience.",
+      "breadcrumb": "FAQ"
+    },
+    "tabs": {
+      "items": [
+        {
+          "id": "life-itba",
+          "label": "Life at ITBA",
+          "title": "Before your arrival",
+          "image": "/assets/img/tabs/1.png",
+          "content": [
+            {
+              "type": "text",
+              "value": "You can sign up for a Spanish course at ITBA that starts two weeks before the semester (additional cost)."
+            },
+            {
+              "type": "text",
+              "value": "Once the semester starts, you have two weeks to confirm your course choices and make changes if needed."
+            },
+            {
+              "type": "text",
+              "value": "Once you're here: ITBA has three buildings, one in Microcentro and two in Parque Patricios."
+            },
+            {
+              "type": "list",
+              "value": [
+                "Join student groups with events and activities.",
+                "Microwaves are available on campus.",
+                "CEITBA offers discounts and sports classes."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "where-to-live",
+          "label": "Where to live",
+          "title": "Neighborhoods & accommodation",
+          "image": "/assets/img/tabs/2.png",
+          "content": [
+            {
+              "type": "list",
+              "value": [
+                "Palermo: trendy vibe, nightlife, parks, cafes.",
+                "Recoleta: elegant architecture and historic charm.",
+                "Belgrano: leafy residential area with dining options."
+              ]
+            },
+            {
+              "type": "list",
+              "value": [
+                "Booking: booking.com",
+                "Zonaprop: zonaprop.com.ar",
+                "Roomgo: roomgo.com.ar",
+                "Airbnb: airbnb.com.ar"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "transport",
+          "label": "Transport system",
+          "title": "Public & private transport",
+          "image": "/assets/img/tabs/3.png",
+          "content": [
+            {
+              "type": "list",
+              "value": [
+                "Subte: extensive subway system with frequent service.",
+                "Buses: cover almost every area, less regular than the Subte.",
+                "Trains: useful for trips outside the city (e.g. Tigre)."
+              ]
+            },
+            {
+              "type": "callout",
+              "value": "SUBE CARD: Required for public transport. Buy and top up at kiosks or metro stations. Register in the SUBE app to avoid higher fares."
+            },
+            {
+              "type": "text",
+              "value": "Private transport options include Uber, Cabify, Didi, and BA Taxi."
+            }
+          ]
+        },
+        {
+          "id": "travel",
+          "label": "Travelling around",
+          "title": "Airports & trips",
+          "image": "/assets/img/tabs/4.png",
+          "content": [
+            {
+              "type": "list",
+              "value": [
+                "Ezeiza (EZE): international airport, 35 km south of the city.",
+                "Aeroparque (AEP): domestic/regional flights, close to downtown."
+              ]
+            },
+            {
+              "type": "text",
+              "value": "Main airlines: Aerolineas Argentinas, JetSmart, FlyBondi."
+            },
+            {
+              "type": "text",
+              "value": "Buses: Plataforma 10. Trains: Trenes Argentinos."
+            }
+          ]
+        }
+      ]
+    },
+    "contacts": {
+      "title": "Contacts",
+      "subtitle": "Useful information",
+      "items": [
+        "Vida Universitaria: experiencia@itba.edu.ar",
+        "ITBA exchange organization: relacionesinternacionales@itba.edu.ar (@itbaglobal)",
+        "CEITBA: ceitba@itba.edu.ar (@ceitba)"
+      ]
+    }
+  },
   "common": {
     "readMore": "Read more",
     "submit": "Submit",

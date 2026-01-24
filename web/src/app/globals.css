@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
+@plugin "@tailwindcss/typography";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -30,7 +31,6 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--color-heading);
   font-family: var(--font-heading);
 }
 
