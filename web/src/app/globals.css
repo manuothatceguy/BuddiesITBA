@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Colors from original Buddies ITBA site */
+  --color-primary: #0c5781;
+  --color-primary-light: #1a6d99;
+  --color-primary-dark: #094569;
+  --color-background: #e1ecf6;
+  --color-surface: #ffffff;
+  --color-heading: #37423b;
+  --color-text: #444444;
+  --color-text-muted: #6c757d;
+  --color-accent: #5fcf80;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Fonts */
+  --font-sans: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Raleway', ui-sans-serif, system-ui, sans-serif;
+  --font-nav: 'Poppins', ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-heading);
+  font-family: var(--font-heading);
 }
