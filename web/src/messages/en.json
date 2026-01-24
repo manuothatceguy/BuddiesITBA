@@ -126,6 +126,12 @@
       "description": "Join cultural and social activities to make friends and explore Buenos Aires together.",
       "breadcrumb": "Events"
     },
+    "timeline": {
+      "empty": "No upcoming events",
+      "capacity": "Capacity:",
+      "whatsappNote": "Registration via Buddies WhatsApp group",
+      "register": "Register"
+    },
     "list": {
       "items": [
         {
@@ -300,6 +306,8 @@
     "error": "An error occurred"
   },
   "footer": {
+    "tagline": "Connecting ITBA students with exchange students since 2015.",
+    "contact": "Contact",
     "rights": "All rights reserved"
   }
 }

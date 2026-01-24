@@ -11,6 +11,7 @@ type Props = {
 export default async function EventsPage({ params }: Props) {
   const { locale } = await params;
   const tPage = await getTranslations('events.page');
+  const tTimeline = await getTranslations('events.timeline');
   const tNav = await getTranslations('nav');
 
   // Fetch upcoming events from Notion CMS
@@ -26,7 +27,16 @@ export default async function EventsPage({ params }: Props) {
           { label: tPage('breadcrumb') },
         ]}
       />
-      <EventsTimeline events={events} locale={locale} />
+      <EventsTimeline
+        events={events}
+        locale={locale}
+        translations={{
+          empty: tTimeline('empty'),
+          capacity: tTimeline('capacity'),
+          whatsappNote: tTimeline('whatsappNote'),
+          register: tTimeline('register'),
+        }}
+      />
     </>
   );
 }

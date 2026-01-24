@@ -61,7 +61,7 @@ export class NotionCMS implements CMSClient {
         id: page.id,
         question: this.getLocalizedText(page.properties, 'Question', locale),
         answer: this.getLocalizedText(page.properties, 'Answer', locale),
-        category: this.getSelectValue(page.properties, 'Category') || 'general',
+        category: this.getLocalizedText(page.properties, 'Category', locale) || 'general',
         order: this.getNumberValue(page.properties, 'Order') || 0,
       }));
   }
@@ -175,12 +175,15 @@ export class NotionCMS implements CMSClient {
     locale: Locale
   ): string {
     const localizedField = `${field}_${locale.toUpperCase()}`;
-    // Try localized field first, fall back to base field
+    // Try localized field first (rich_text, title, or select), fall back to base field
     return (
       this.getRichText(properties, localizedField) ||
       this.getTitleText(properties, localizedField) ||
+      this.getSelectValue(properties, localizedField) ||
       this.getRichText(properties, field) ||
-      this.getTitleText(properties, field)
+      this.getTitleText(properties, field) ||
+      this.getSelectValue(properties, field) ||
+      ''
     );
   }
 

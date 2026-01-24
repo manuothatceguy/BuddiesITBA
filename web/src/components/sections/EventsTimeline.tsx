@@ -3,15 +3,22 @@ import { Event } from '@/lib/cms/types';
 import { Button } from '@/components/ui/button';
 import ReactMarkdown from 'react-markdown';
 
+type Translations = {
+  empty: string;
+  capacity: string;
+  whatsappNote: string;
+  register: string;
+};
+
 type Props = {
   events: Event[];
   locale: string;
-  emptyMessage?: string;
+  translations: Translations;
 };
 
-export function EventsTimeline({ events, locale, emptyMessage }: Props) {
+export function EventsTimeline({ events, locale, translations }: Props) {
   const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat(locale === 'es' ? 'es-AR' : 'en-US', {
+    return new Intl.DateTimeFormat(locale, {
       weekday: 'long',
       day: 'numeric',
       month: 'long',
@@ -19,7 +26,7 @@ export function EventsTimeline({ events, locale, emptyMessage }: Props) {
   };
 
   const formatTime = (date: Date) => {
-    return new Intl.DateTimeFormat(locale === 'es' ? 'es-AR' : 'en-US', {
+    return new Intl.DateTimeFormat(locale, {
       hour: '2-digit',
       minute: '2-digit',
     }).format(date);
@@ -28,7 +35,7 @@ export function EventsTimeline({ events, locale, emptyMessage }: Props) {
   // Group events by month/year
   const eventsByMonth = events.reduce(
     (acc, event) => {
-      const monthKey = new Intl.DateTimeFormat(locale === 'es' ? 'es-AR' : 'en-US', {
+      const monthKey = new Intl.DateTimeFormat(locale, {
         month: 'long',
         year: 'numeric',
       }).format(event.date);
@@ -49,7 +56,7 @@ export function EventsTimeline({ events, locale, emptyMessage }: Props) {
           <div className="mx-auto max-w-md rounded-2xl bg-surface p-8">
             <div className="text-4xl">📅</div>
             <p className="mt-4 text-text-muted">
-              {emptyMessage || (locale === 'es' ? 'No hay eventos próximos' : 'No upcoming events')}
+              {translations.empty}
             </p>
           </div>
         </div>
@@ -125,16 +132,14 @@ export function EventsTimeline({ events, locale, emptyMessage }: Props) {
                           {/* Capacity */}
                           {event.capacity && (
                             <p className="mt-3 text-xs text-text-muted">
-                              {locale === 'es' ? 'Cupos:' : 'Capacity:'} {event.capacity}
+                              {translations.capacity} {event.capacity}
                             </p>
                           )}
 
                           {/* Registration */}
                           {event.registrationType === 'whatsapp' && (
                             <div className="mt-4 rounded-lg bg-primary/10 p-3 text-sm text-primary">
-                              💬 {locale === 'es'
-                                ? 'Inscripción por el grupo de WhatsApp de Buddies'
-                                : 'Registration via Buddies WhatsApp group'}
+                              💬 {translations.whatsappNote}
                             </div>
                           )}
                           {event.registrationType === 'forms' && event.registrationLink && (
@@ -145,7 +150,7 @@ export function EventsTimeline({ events, locale, emptyMessage }: Props) {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                 >
-                                  {locale === 'es' ? 'Inscribirse' : 'Register'}
+                                  {translations.register}
                                 </a>
                               </Button>
                             </div>

@@ -28,9 +28,7 @@ export async function Footer({ locale }: { locale: string }) {
               Buddies ITBA
             </h3>
             <p className="text-white/85 text-sm">
-              {locale === 'es'
-                ? 'Conectando estudiantes del ITBA con estudiantes de intercambio desde 2015.'
-                : 'Connecting ITBA students with exchange students since 2015.'}
+              {tFooter('tagline')}
             </p>
           </div>
 
@@ -53,7 +51,7 @@ export async function Footer({ locale }: { locale: string }) {
           {/* Contact */}
           <div>
             <h4 className="font-heading font-semibold mb-4 text-white">
-              {locale === 'es' ? 'Contacto' : 'Contact'}
+              {tFooter('contact')}
             </h4>
             <div className="text-white/75 text-sm space-y-2">
               <p>ITBA - Instituto Tecnológico de Buenos Aires</p>

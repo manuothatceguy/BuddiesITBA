@@ -3,15 +3,22 @@ import { Event } from '@/lib/cms/types';
 import { Button } from '@/components/ui/button';
 import ReactMarkdown from 'react-markdown';
 
+type Translations = {
+  empty: string;
+  capacity: string;
+  whatsappNote: string;
+  register: string;
+};
+
 type Props = {
   events: Event[];
   locale: string;
-  emptyMessage?: string;
+  translations: Translations;
 };
 
-export function EventsListSection({ events, locale, emptyMessage }: Props) {
+export function EventsListSection({ events, locale, translations }: Props) {
   const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat(locale === 'es' ? 'es-AR' : 'en-US', {
+    return new Intl.DateTimeFormat(locale, {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
@@ -26,7 +33,7 @@ export function EventsListSection({ events, locale, emptyMessage }: Props) {
       <section className="bg-background">
         <div className="container mx-auto px-4 py-16 text-center">
           <p className="text-text-muted">
-            {emptyMessage || (locale === 'es' ? 'No hay eventos próximos' : 'No upcoming events')}
+            {translations.empty}
           </p>
         </div>
       </section>
@@ -69,14 +76,12 @@ export function EventsListSection({ events, locale, emptyMessage }: Props) {
                 </div>
                 {event.capacity && (
                   <p className="mt-3 text-xs text-text-muted">
-                    {locale === 'es' ? 'Cupos:' : 'Capacity:'} {event.capacity}
+                    {translations.capacity} {event.capacity}
                   </p>
                 )}
                 {event.registrationType === 'whatsapp' && (
                   <div className="mt-4 rounded-lg bg-primary/10 p-3 text-sm text-primary">
-                    💬 {locale === 'es'
-                      ? 'Inscripción por el grupo de WhatsApp de Buddies'
-                      : 'Registration via Buddies WhatsApp group'}
+                    💬 {translations.whatsappNote}
                   </div>
                 )}
                 {event.registrationType === 'forms' && event.registrationLink && (
@@ -87,7 +92,7 @@ export function EventsListSection({ events, locale, emptyMessage }: Props) {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {locale === 'es' ? 'Inscribirse' : 'Register'}
+                        {translations.register}
                       </a>
                     </Button>
                   </div>

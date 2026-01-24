@@ -126,6 +126,12 @@
       "description": "Sumate a actividades culturales y sociales para hacer amigos y descubrir Buenos Aires juntos.",
       "breadcrumb": "Eventos"
     },
+    "timeline": {
+      "empty": "No hay eventos próximos",
+      "capacity": "Cupos:",
+      "whatsappNote": "Inscripción por el grupo de WhatsApp de Buddies",
+      "register": "Inscribirse"
+    },
     "list": {
       "items": [
         {
@@ -300,6 +306,8 @@
     "error": "Ha ocurrido un error"
   },
   "footer": {
+    "tagline": "Conectando estudiantes del ITBA con estudiantes de intercambio desde 2015.",
+    "contact": "Contacto",
     "rights": "Todos los derechos reservados"
   }
 }
