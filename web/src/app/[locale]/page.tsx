@@ -24,18 +24,18 @@ export default async function HomePage({ params }: Props) {
         </Button>
 
         <div className="mt-8 flex gap-4 justify-center">
-          <a
+          <Link
             href="/es"
             className={`px-3 py-1 rounded ${locale === 'es' ? 'bg-primary text-white' : 'bg-surface'}`}
           >
             ES
-          </a>
-          <a
+          </Link>
+          <Link
             href="/en"
             className={`px-3 py-1 rounded ${locale === 'en' ? 'bg-primary text-white' : 'bg-surface'}`}
           >
             EN
-          </a>
+          </Link>
         </div>
       </div>
     </main>

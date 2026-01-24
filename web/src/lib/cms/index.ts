@@ -17,15 +17,15 @@ class MockCMS implements CMSClient {
     ];
   }
 
-  async getTeamMembers(locale: Locale): Promise<TeamMember[]> {
+  async getTeamMembers(_locale: Locale): Promise<TeamMember[]> {
     return [];
   }
 
-  async getUpcomingEvents(locale: Locale): Promise<Event[]> {
+  async getUpcomingEvents(_locale: Locale): Promise<Event[]> {
     return [];
   }
 
-  async getPosts(locale: Locale, limit?: number): Promise<BlogPost[]> {
+  async getPosts(_locale: Locale, _limit?: number): Promise<BlogPost[]> {
     return [];
   }
 }
