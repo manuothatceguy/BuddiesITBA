@@ -3,7 +3,7 @@ import {
   PageObjectResponse,
   RichTextItemResponse,
 } from '@notionhq/client/build/src/api-endpoints';
-import { CMSClient, FAQ, TeamMember, Event, BlogPost } from './types';
+import { CMSClient, FAQ, TeamMember, Event, BlogPost, NotionBlock } from './types';
 import { Locale } from '@/i18n/config';
 
 type NotionPage = PageObjectResponse;
@@ -149,22 +149,70 @@ export class NotionCMS implements CMSClient {
 
     return response.results
       .filter((page): page is NotionPage => 'properties' in page)
-      .map((page) => ({
-        id: page.id,
-        slug: this.getRichText(page.properties, 'Slug'),
-        title: this.getLocalizedText(page.properties, 'Title', locale),
-        excerpt: this.getLocalizedText(page.properties, 'Excerpt', locale),
-        content: '', // Content requires fetching blocks separately
-        coverImage: this.getFileUrl(page.properties, 'CoverImage') || '',
-        publishedAt: new Date(this.getDateValue(page.properties, 'PublishedAt') || ''),
-        author: {
-          id: '',
-          name: this.getRichText(page.properties, 'AuthorName'),
-          role: '',
-          bio: '',
-          image: '',
-        },
-      }));
+      .map((page) => this.mapPageToPost(page, locale));
+  }
+
+  async getPostBySlug(slug: string, locale: Locale): Promise<BlogPost | null> {
+    const databaseId = process.env.NOTION_BLOG_DB;
+    if (!databaseId) {
+      console.warn('NOTION_BLOG_DB not defined, returning null');
+      return null;
+    }
+
+    const dataSourceId = await this.getDataSourceId(databaseId);
+    const response = await this.client.dataSources.query({
+      data_source_id: dataSourceId,
+      filter: {
+        and: [
+          { property: 'Slug', rich_text: { equals: slug } },
+          { property: 'Published', checkbox: { equals: true } },
+        ],
+      },
+    });
+
+    const page = response.results.find(
+      (p): p is NotionPage => 'properties' in p
+    );
+    if (!page) return null;
+
+    return this.mapPageToPost(page, locale);
+  }
+
+  async getPageBlocks(pageId: string): Promise<NotionBlock[]> {
+    const blocks: NotionBlock[] = [];
+    let cursor: string | undefined;
+
+    do {
+      const response = await this.client.blocks.children.list({
+        block_id: pageId,
+        start_cursor: cursor,
+      });
+
+      blocks.push(
+        ...response.results.map((block) => block as unknown as NotionBlock)
+      );
+
+      cursor = response.has_more ? response.next_cursor ?? undefined : undefined;
+    } while (cursor);
+
+    return blocks;
+  }
+
+  private mapPageToPost(page: NotionPage, locale: Locale): BlogPost {
+    return {
+      id: page.id,
+      slug: this.getRichText(page.properties, 'Slug'),
+      title: this.getLocalizedText(page.properties, 'Title', locale),
+      excerpt: this.getLocalizedText(page.properties, 'Excerpt', locale),
+      coverImage: this.getFileUrl(page.properties, 'CoverImage') || '',
+      publishedAt: new Date(this.getDateValue(page.properties, 'PublishedAt') || ''),
+      category: this.getLocalizedText(page.properties, 'Category', locale),
+      author: {
+        id: '',
+        name: this.getRichText(page.properties, 'AuthorName') || 'Buddies ITBA',
+        image: this.getFileUrl(page.properties, 'AuthorImage') || '',
+      },
+    };
   }
 
   // Helper methods for extracting Notion property values

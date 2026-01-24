@@ -179,6 +179,22 @@
       }
     }
   },
+  "blog": {
+    "page": {
+      "title": "Blog",
+      "description": "Historias, tips y novedades de la comunidad Buddies.",
+      "breadcrumb": "Blog"
+    },
+    "list": {
+      "empty": "No hay publicaciones todavía",
+      "readMore": "Leer más"
+    },
+    "post": {
+      "by": "Por",
+      "backToList": "Volver al blog",
+      "related": "Posts relacionados"
+    }
+  },
   "faq": {
     "page": {
       "title": "Preguntas frecuentes",

@@ -35,15 +35,24 @@ export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
-  content: string;
   coverImage: string;
   publishedAt: Date;
-  author: TeamMember;
+  author: Pick<TeamMember, 'id' | 'name' | 'image'>;
+  category?: string;
 }
+
+// Notion block types for rendering
+export type NotionBlock = {
+  id: string;
+  type: string;
+  [key: string]: unknown;
+};
 
 export interface CMSClient {
   getFAQs(locale: Locale): Promise<FAQ[]>;
   getTeamMembers(locale: Locale): Promise<TeamMember[]>;
   getUpcomingEvents(locale: Locale): Promise<Event[]>;
   getPosts(locale: Locale, limit?: number): Promise<BlogPost[]>;
+  getPostBySlug(slug: string, locale: Locale): Promise<BlogPost | null>;
+  getPageBlocks(pageId: string): Promise<NotionBlock[]>;
 }

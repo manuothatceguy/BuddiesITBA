@@ -179,6 +179,22 @@
       }
     }
   },
+  "blog": {
+    "page": {
+      "title": "Blog",
+      "description": "Stories, tips and news from the Buddies community.",
+      "breadcrumb": "Blog"
+    },
+    "list": {
+      "empty": "No posts yet",
+      "readMore": "Read more"
+    },
+    "post": {
+      "by": "By",
+      "backToList": "Back to blog",
+      "related": "Related posts"
+    }
+  },
   "faq": {
     "page": {
       "title": "Frequently asked questions",

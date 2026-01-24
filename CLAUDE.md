@@ -44,9 +44,35 @@ src/
 
 **CMS Abstraction (Strategy Pattern):** All content fetching goes through `lib/cms/index.ts`. Components import `cms` and call methods like `cms.getFAQs(locale)`. Current implementation uses Notion, but interface allows swapping to Sanity.
 
-**Internationalization:** Uses next-intl v4. Static UI strings in `messages/*.json`, dynamic content from Notion with `_ES`/`_EN` column suffixes.
+**Internationalization:** Uses next-intl v4. See detailed patterns below.
 
 **Server Components by Default:** Fetch data directly in async components. Use `'use client'` only when needed (interactivity, hooks).
+
+### Localization Patterns
+
+**NEVER use locale ternaries in components.** No `locale === 'es' ? 'Texto' : 'Text'`. This breaks when adding new languages.
+
+**Static UI strings:** Add to `messages/es.json` and `messages/en.json`, fetch with `getTranslations()`:
+```tsx
+// In Server Components
+const t = await getTranslations('events.timeline');
+<EventsTimeline translations={{ empty: t('empty'), capacity: t('capacity') }} />
+```
+
+**Dynamic content from Notion:** Use `_ES`/`_EN` column suffixes. The CMS layer auto-selects based on locale:
+- `Title_ES`, `Title_EN` → `cms.getLocalizedText(props, 'Title', locale)`
+- Works for: rich_text, title, and select field types
+
+**Date formatting:** Use `Intl.DateTimeFormat(locale, options)` directly with the locale string. Don't hardcode `'es-AR'` or `'en-US'`.
+
+**Component props pattern:** Components receive translated strings as props, not locale:
+```tsx
+// ❌ Bad - component does translation internally
+<EventCard locale={locale} />
+
+// ✅ Good - parent passes translated strings
+<EventCard translations={{ capacity: t('capacity'), register: t('register') }} />
+```
 
 **Server Actions for Forms:** No API routes for form submissions. Use `'use server'` functions.
 
