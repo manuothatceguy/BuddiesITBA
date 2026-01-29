@@ -108,8 +108,9 @@ h6 {
   --muted: oklch(0.96 0.01 245);
   --muted-foreground: oklch(0.55 0.03 245);
 
-  /* Soft Gold/Orange for warmth but less aggressive */
-  --accent: oklch(0.75 0.15 70);
+  /* Accent Green from Project Plan */
+  --accent: oklch(0.75 0.18 145);
+  /* Approx #5fcf80 converted to OKLCH */
   --accent-foreground: oklch(0.25 0.04 250);
 
   --destructive: oklch(0.6 0.18 25);
@@ -155,11 +156,9 @@ h6 {
   --secondary-foreground: oklch(0.96 0.01 245);
 
   --muted: oklch(0.2 0.04 250);
-  --muted-foreground: oklch(0.65 0.04 245);
-
-  --accent: oklch(0.65 0.22 30);
-  /* Vibrant Coral stays same */
-  --accent-foreground: oklch(0.985 0 0);
+  --accent: oklch(0.80 0.12 240);
+  /* Light Blue for dark mode */
+  --accent-foreground: oklch(0.35 0.12 245);
 
   --destructive: oklch(0.5 0.18 25);
   --destructive-foreground: oklch(0.985 0 0);
