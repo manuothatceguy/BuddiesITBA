@@ -31,7 +31,7 @@ export class NotionCMS implements CMSClient {
 
     // Fetch database to get data_sources array
     const db = await this.client.databases.retrieve({ database_id: databaseId });
-    const dataSources = (db as any).data_sources;
+    const dataSources = (db as unknown as { data_sources: { id: string }[] }).data_sources;
 
     if (!dataSources || dataSources.length === 0) {
       throw new Error(`No data sources found for database ${databaseId}`);

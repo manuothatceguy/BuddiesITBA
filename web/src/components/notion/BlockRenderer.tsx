@@ -43,6 +43,7 @@ function renderRichText(richText: RichText[]): React.ReactNode {
   });
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Paragraph({ block }: { block: any }) {
   return (
     <p className="mb-4 leading-relaxed">
@@ -51,6 +52,7 @@ function Paragraph({ block }: { block: any }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Heading1({ block }: { block: any }) {
   return (
     <h1 className="mb-4 mt-8 text-3xl font-heading font-bold text-heading">
@@ -59,6 +61,7 @@ function Heading1({ block }: { block: any }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Heading2({ block }: { block: any }) {
   return (
     <h2 className="mb-3 mt-6 text-2xl font-heading font-semibold text-heading">
@@ -67,6 +70,7 @@ function Heading2({ block }: { block: any }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Heading3({ block }: { block: any }) {
   return (
     <h3 className="mb-2 mt-4 text-xl font-heading font-semibold text-heading">
@@ -75,6 +79,7 @@ function Heading3({ block }: { block: any }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function BulletedList({ blocks }: { blocks: any[] }) {
   return (
     <ul className="mb-4 list-disc space-y-1 pl-6">
@@ -87,6 +92,7 @@ function BulletedList({ blocks }: { blocks: any[] }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function NumberedList({ blocks }: { blocks: any[] }) {
   return (
     <ol className="mb-4 list-decimal space-y-1 pl-6">
@@ -99,6 +105,7 @@ function NumberedList({ blocks }: { blocks: any[] }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ImageBlock({ block }: { block: any }) {
   const image = block.image;
   const url = image.type === 'file' ? image.file.url : image.external.url;
@@ -123,6 +130,7 @@ function ImageBlock({ block }: { block: any }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Quote({ block }: { block: any }) {
   return (
     <blockquote className="my-4 border-l-4 border-primary pl-4 italic text-text-muted">
@@ -131,6 +139,7 @@ function Quote({ block }: { block: any }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Callout({ block }: { block: any }) {
   const icon = block.callout.icon?.emoji || '💡';
   return (
@@ -141,6 +150,7 @@ function Callout({ block }: { block: any }) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Code({ block }: { block: any }) {
   const code = block.code.rich_text.map((t: RichText) => t.plain_text).join('');
   return (

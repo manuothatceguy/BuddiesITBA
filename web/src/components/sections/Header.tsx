@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
@@ -12,12 +12,20 @@ import {
   SheetTrigger,
   SheetTitle,
 } from '@/components/ui/sheet';
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 const navItems = [
   { key: 'home', href: '' },
   { key: 'about', href: '/about' },
   { key: 'events', href: '/events' },
+  { key: 'blog', href: '/blog' },
   { key: 'faq', href: '/faq' },
   { key: 'contact', href: '/contact' },
 ];
@@ -36,32 +44,39 @@ export function Header({ locale }: { locale: string }) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link href={`/${locale}`} className="flex items-center gap-2">
-          <span className="text-xl font-heading font-bold text-primary">
+          <span className="text-2xl font-heading font-extrabold text-primary tracking-tight">
             Buddies ITBA
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.key}
-              href={`/${locale}${item.href}`}
-              className={`font-nav text-sm transition-colors hover:text-primary ${
-                isActive(item.href)
-                  ? 'text-primary font-medium'
-                  : 'text-text-muted'
-              }`}
-            >
-              {t(item.key)}
-            </Link>
-          ))}
-          <LanguageSwitcher locale={locale} />
-        </nav>
+        <div className="hidden md:flex items-center gap-6">
+          <NavigationMenu>
+            <NavigationMenuList>
+              {navItems.map((item) => (
+                <NavigationMenuItem key={item.key}>
+                  <Link href={`/${locale}${item.href}`} legacyBehavior passHref>
+                    <NavigationMenuLink
+                      className={`${navigationMenuTriggerStyle()} ${isActive(item.href)
+                        ? 'bg-primary/10 text-primary font-bold hover:bg-primary/15 hover:text-primary'
+                        : 'bg-transparent hover:bg-accent/10 hover:text-accent-foreground'
+                        }`}
+                    >
+                      {t(item.key)}
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+          <div className="ml-4">
+            <LanguageSwitcher locale={locale} />
+          </div>
+        </div>
 
         {/* Mobile Menu */}
         <div className="flex md:hidden items-center gap-2">
@@ -73,21 +88,20 @@ export function Header({ locale }: { locale: string }) {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[280px]">
-              <SheetTitle className="text-primary font-heading">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetTitle className="text-primary font-heading text-2xl font-bold mb-6 text-left">
                 Buddies ITBA
               </SheetTitle>
-              <nav className="flex flex-col gap-4 mt-8">
+              <nav className="flex flex-col gap-4">
                 {navItems.map((item) => (
                   <Link
                     key={item.key}
                     href={`/${locale}${item.href}`}
                     onClick={() => setOpen(false)}
-                    className={`font-nav text-lg transition-colors hover:text-primary ${
-                      isActive(item.href)
-                        ? 'text-primary font-medium'
-                        : 'text-text-muted'
-                    }`}
+                    className={`block py-2 text-lg font-nav transition-colors hover:text-primary ${isActive(item.href)
+                      ? 'text-primary font-semibold'
+                      : 'text-muted-foreground'
+                      }`}
                   >
                     {t(item.key)}
                   </Link>

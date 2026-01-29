@@ -3,6 +3,7 @@
     "home": "Inicio",
     "about": "Nosotros",
     "events": "Eventos",
+    "blog": "Blog",
     "faq": "Preguntas Frecuentes",
     "contact": "Contacto"
   },
@@ -30,10 +31,22 @@
     },
     "stats": {
       "items": [
-        { "value": "100", "label": "Estudiantes por semestre" },
-        { "value": "34", "label": "Nacionalidades" },
-        { "value": "120", "label": "Buddies argentinos" },
-        { "value": "5000", "label": "Mates!" }
+        {
+          "value": "100",
+          "label": "Estudiantes por semestre"
+        },
+        {
+          "value": "34",
+          "label": "Nacionalidades"
+        },
+        {
+          "value": "120",
+          "label": "Buddies argentinos"
+        },
+        {
+          "value": "5000",
+          "label": "Mates!"
+        }
       ]
     },
     "events": {
@@ -91,10 +104,22 @@
     },
     "stats": {
       "items": [
-        { "value": "100", "label": "Estudiantes por semestre" },
-        { "value": "34", "label": "Nacionalidades" },
-        { "value": "120", "label": "Buddies argentinos" },
-        { "value": "5000", "label": "Mates!" }
+        {
+          "value": "100",
+          "label": "Estudiantes por semestre"
+        },
+        {
+          "value": "34",
+          "label": "Nacionalidades"
+        },
+        {
+          "value": "120",
+          "label": "Buddies argentinos"
+        },
+        {
+          "value": "5000",
+          "label": "Mates!"
+        }
       ]
     },
     "team": {
