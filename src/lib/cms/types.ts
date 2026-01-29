@@ -12,7 +12,8 @@ export interface TeamMember {
   id: string;
   name: string;
   role: string;
-  bio: string;
+  career?: string;
+  bio?: string;
   image: string;
   linkedin?: string;
 }

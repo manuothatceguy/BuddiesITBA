@@ -85,7 +85,8 @@ export class NotionCMS implements CMSClient {
         id: page.id,
         name: this.getTitleText(page.properties, 'Name'),
         role: this.getLocalizedText(page.properties, 'Role', locale),
-        bio: this.getLocalizedText(page.properties, 'Bio', locale),
+        career: this.getLocalizedText(page.properties, 'Career', locale) || undefined,
+        bio: this.getLocalizedText(page.properties, 'Bio', locale) || undefined,
         image: this.getFileUrl(page.properties, 'Image') || '',
         linkedin: this.getUrlValue(page.properties, 'LinkedIn'),
       }));

@@ -43,6 +43,9 @@ export function TeamSection({ title, subtitle, members }: Props) {
                 {member.name}
               </h3>
               <p className="text-sm font-medium text-primary">{member.role}</p>
+              {member.career && (
+                <p className="text-sm text-text-muted">{member.career}</p>
+              )}
               {member.bio && (
                 <p className="mt-2 text-sm text-text-muted">{member.bio}</p>
               )}
