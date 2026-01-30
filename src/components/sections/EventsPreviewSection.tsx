@@ -1,16 +1,19 @@
 import Image from 'next/image';
+import { AlertTriangle } from 'lucide-react';
 import { Event } from '@/lib/cms/types';
 
 type EventsPreviewSectionProps = {
   title: string;
   subtitle: string;
   events: Event[];
+  exchangeOnlyLabel: string;
 };
 
 export function EventsPreviewSection({
   title,
   subtitle,
   events,
+  exchangeOnlyLabel,
 }: EventsPreviewSectionProps) {
   if (events.length === 0) {
     return null;
@@ -45,6 +48,12 @@ export function EventsPreviewSection({
                 <div className="h-48 w-full bg-gradient-to-br from-primary to-primary/70" />
               )}
               <div className="p-5">
+                {event.exchangeOnly && (
+                  <span className="mb-2 inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800">
+                    <AlertTriangle className="h-3 w-3" />
+                    {exchangeOnlyLabel}
+                  </span>
+                )}
                 <h3 className="text-lg font-heading font-semibold text-heading">
                   {event.title}
                 </h3>

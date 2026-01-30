@@ -13,7 +13,7 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { NotionBlockRenderer } from '@/components/ui/notion-block-renderer';
 import { getEventDetails } from '@/app/actions';
-import { Loader2, Calendar, Clock, MapPin, MessageCircle } from 'lucide-react';
+import { Loader2, Calendar, Clock, MapPin, MessageCircle, AlertTriangle } from 'lucide-react';
 import { AddToCalendar, AddToCalendarIcon } from '@/components/ui/add-to-calendar';
 
 type Translations = {
@@ -21,6 +21,7 @@ type Translations = {
   capacity: string;
   whatsappNote: string;
   register: string;
+  exchangeOnly: string;
 };
 
 type Props = {
@@ -159,6 +160,12 @@ export function EventsTimeline({ events, locale, translations }: Props) {
 
                           {/* Date & time badge */}
                           <div className="mb-3 flex flex-wrap items-center gap-2">
+                            {event.exchangeOnly && (
+                              <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">
+                                <AlertTriangle className="h-3 w-3" />
+                                {translations.exchangeOnly}
+                              </span>
+                            )}
                             <span className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-xs font-medium capitalize text-secondary-foreground">
                               {formatDate(event.date)}
                             </span>
@@ -240,6 +247,12 @@ export function EventsTimeline({ events, locale, translations }: Props) {
               </div>
 
               <ScrollArea className="flex-1 p-6">
+                {selectedEvent.exchangeOnly && (
+                  <div className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1.5 text-sm font-medium text-amber-800">
+                    <AlertTriangle className="h-4 w-4" />
+                    {translations.exchangeOnly}
+                  </div>
+                )}
                 <DialogDescription asChild className="text-base text-muted-foreground mb-6">
                   <div>
                     {/* Fallback description if no blocks */}

@@ -16,6 +16,7 @@ export default async function HomePage({ params }: Props) {
   const tAbout = await getTranslations('home.about');
   const tStats = await getTranslations('home.stats');
   const tEvents = await getTranslations('home.events');
+  const tTimeline = await getTranslations('events.timeline');
 
   const homeEvents = await cms.getHomeEvents(locale as Locale);
 
@@ -39,6 +40,7 @@ export default async function HomePage({ params }: Props) {
         title={tEvents('title')}
         subtitle={tEvents('subtitle')}
         events={homeEvents}
+        exchangeOnlyLabel={tTimeline('exchangeOnly')}
       />
     </main>
   );

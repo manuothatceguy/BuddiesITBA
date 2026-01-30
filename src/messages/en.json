@@ -76,7 +76,8 @@
       "empty": "No upcoming events",
       "capacity": "Capacity:",
       "whatsappNote": "Registration via Buddies WhatsApp group",
-      "register": "Register"
+      "register": "Register",
+      "exchangeOnly": "Exchange students only"
     }
   },
   "contact": {

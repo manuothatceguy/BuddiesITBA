@@ -31,6 +31,7 @@ export interface Event {
   registrationLink?: string;
   showInHome?: boolean;
   showInEvents?: boolean;
+  exchangeOnly?: boolean;
 }
 
 export interface BlogPost {

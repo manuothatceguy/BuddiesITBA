@@ -156,6 +156,7 @@ export class NotionCMS implements CMSClient {
       registrationLink: this.getUrlValue(page.properties, 'RegistrationLink'),
       showInHome: this.getCheckboxValue(page.properties, 'ShowInHome'),
       showInEvents: this.getCheckboxValue(page.properties, 'ShowInEvents'),
+      exchangeOnly: this.getCheckboxValue(page.properties, 'ExchangeOnly'),
     };
   }
 
